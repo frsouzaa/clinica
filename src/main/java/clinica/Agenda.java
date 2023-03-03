@@ -1,4 +1,4 @@
-package poo02;
+package clinica;
 import java.time.LocalDate;
 
 public class Agenda {
@@ -34,7 +34,10 @@ public class Agenda {
         return this.paciente;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDate data) throws NullPointerException {
+        if (data.compareTo(LocalDate.now()) < 0 || data==null) {
+            throw new NullPointerException("Data inválida");
+        }
         this.data = data;
     }
 
@@ -42,11 +45,17 @@ public class Agenda {
         this.hora = hora;
     }
 
-    public void setMedico(Medico medico) {
+    public void setMedico(Medico medico) throws NullPointerException {
+        if (medico==null) {
+            throw new NullPointerException("Médico não pode ser vazio");
+        }
         this.medico = medico;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(Paciente paciente) throws NullPointerException {
+        if (paciente==null) {
+            throw new NullPointerException("Paciente não pode ser vazio");
+        }
         this.paciente = paciente;
     }
 

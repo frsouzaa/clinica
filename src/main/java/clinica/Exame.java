@@ -1,16 +1,16 @@
-package poo02;
+package clinica;
 import java.time.LocalDate;
 
-public class Receita {
+public class Exame {
     public String consulta;
     public LocalDate data;
     public String descritivo;
 
-    public Receita() {
+    public Exame() {
 
     }
 
-    public Receita( String consulta, LocalDate data, String descritivo) {
+    public Exame(String consulta, LocalDate data, String descritivo) {
         this.consulta = consulta;
         this.data = data;
         this.descritivo = descritivo;
@@ -28,11 +28,17 @@ public class Receita {
         return this.descritivo;
     }
 
-    public void setConsulta(String consulta) {
+    public void setConsulta(String consulta) throws NullPointerException {
+        if (consulta==null) {
+            throw new NullPointerException("Consulta não pode ser vazia");
+        }
         this.consulta = consulta;
     }
     
-    public void setData(LocalDate data) {
+    public void setData(LocalDate data) throws NullPointerException {
+        if (data.compareTo(LocalDate.now()) < 0 || data==null) {
+            throw new NullPointerException("Data inválida");
+        }
         this.data = data;
     }
 
@@ -40,7 +46,7 @@ public class Receita {
         this.descritivo = descritivo;
     }
 
-    public void preescrever() {
+    public void solicitar() {
         // todo
     }
 
@@ -49,7 +55,7 @@ public class Receita {
     }
 
     public void mostrar() {
-        System.out.println("\n\n########## RECEITA ##########");
+        System.out.println("\n\n########## EXAME ##########");
         System.out.println("Data:       " + data.toString());
         System.out.println("Consulta:   " + consulta);
         System.out.println("Descritivo: " + descritivo);

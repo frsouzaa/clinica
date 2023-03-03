@@ -1,4 +1,4 @@
-package poo02;
+package clinica;
 
 public class Paciente {
     public String nome;
@@ -39,11 +39,17 @@ public class Paciente {
         return this.idade;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws NullPointerException {
+        if (nome==null) {
+            throw new NullPointerException("Nome não pode ser vazio");
+        }
         this.nome = nome;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws NullPointerException {
+        if (cpf==null || cpf.length()!=11) {
+            throw new NullPointerException("CPF inválido");
+        }
         this.cpf = cpf;
     }
 
@@ -51,17 +57,38 @@ public class Paciente {
         this.telefone = telefone;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(char genero) throws NullPointerException {
+        if (genero==Character.MIN_VALUE) {
+            throw new NullPointerException("Genero não pode ser vazio");
+        }
         this.genero = genero;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(int idade) throws NullPointerException {
+        if (idade < 0) {
+            throw new NullPointerException("Idade não pode ser negativa");
+        }
         this.idade = idade;
     }
 
 
     public void cadastrar() {
         // todo
+    }
+
+    public String nomeCompleto() {
+        String res = "";
+        try {
+            res = this.nome.toUpperCase() + "," +
+            this.telefone + "," +
+            this.genero + "," +
+            this.cpf + "," +
+            this.idade;
+        } catch (Exception e) {
+            res = "Objeto vazio, verifique";
+            System.out.println(e.getMessage());
+        }
+        return res;
     }
 
     public void mostrar(boolean atributo) {

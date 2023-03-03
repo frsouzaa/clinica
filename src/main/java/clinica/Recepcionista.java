@@ -1,4 +1,4 @@
-package poo02;
+package clinica;
 
 public class Recepcionista {
     public String nome;
@@ -33,11 +33,17 @@ public class Recepcionista {
         return this.senha;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws NullPointerException {
+        if (nome==null) {
+            throw new NullPointerException("Nome não pode ser vazio");
+        }
         this.nome = nome;
     }
     
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws NullPointerException {
+        if (cpf==null || cpf.length()!=11) {
+            throw new NullPointerException("CPF inválido");
+        }
         this.cpf = cpf;
     }
     
@@ -45,7 +51,10 @@ public class Recepcionista {
         this.telefone = telefone;
     }
     
-    public void setSenha(String senha) {
+    public void setSenha(String senha) throws NullPointerException {
+        if (senha==null || senha.length() < 13) {
+            throw new NullPointerException("Senha fraca");
+        }
         this.senha = senha;
     }
 
