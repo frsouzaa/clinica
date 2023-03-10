@@ -1,5 +1,7 @@
 package clinica;
 
+import java.time.LocalDate;
+
 public class Recepcionista {
     public String nome;
     public String cpf;
@@ -62,6 +64,15 @@ public class Recepcionista {
         // todo
     }
 
+    public void cadastrarPaciente(Paciente paciente) {
+        paciente.mostrar(false);
+    }
+
+    public void marcarConsulta(Medico medico, Paciente paciente) {
+        Consulta consulta = new Consulta(LocalDate.now(), "23:59:00", medico, paciente, "teste", "teste");
+        consulta.mostrar(false);
+    }
+
     public void mostrar() {
         System.out.println("\n\n########## RECEPCIONISTA ##########");
         System.out.println("Nome:     " + nome);
@@ -69,6 +80,4 @@ public class Recepcionista {
         System.out.println("Telefone: " + telefone);
         System.out.println("Senha:    " + senha);
     }
-
-
 }

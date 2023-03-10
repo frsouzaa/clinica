@@ -1,4 +1,5 @@
 package clinica;
+import java.time.LocalDate;
 
 public class Medico {
     public String nome;
@@ -68,8 +69,14 @@ public class Medico {
         this.senha = senha;
     }
 
-    public void acessar() {
-        // todo
+    public void emitirReceita(Consulta consulta) {
+        Receita receita = new Receita(consulta, LocalDate.now(), "teste");
+        receita.mostrar();
+    }
+
+    public void solicitarExame(Consulta consulta) {
+        Exame exame = new Exame(consulta, LocalDate.now(), "teste");
+        exame.mostrar();
     }
 
     public void mostrar(boolean atributo) {

@@ -2,7 +2,7 @@ package clinica;
 import java.time.LocalDate;
 
 public class Exame {
-    public String consulta;
+    public Consulta consulta;
     public LocalDate data;
     public String descritivo;
 
@@ -10,13 +10,13 @@ public class Exame {
 
     }
 
-    public Exame(String consulta, LocalDate data, String descritivo) {
+    public Exame(Consulta consulta, LocalDate data, String descritivo) {
         this.consulta = consulta;
         this.data = data;
         this.descritivo = descritivo;
     }
 
-    public String getConsulta() {
+    public Consulta getConsulta() {
         return this.consulta;
     }
     
@@ -28,7 +28,7 @@ public class Exame {
         return this.descritivo;
     }
 
-    public void setConsulta(String consulta) throws NullPointerException {
+    public void setConsulta(Consulta consulta) throws NullPointerException {
         if (consulta==null) {
             throw new NullPointerException("Consulta não pode ser vazia");
         }
@@ -57,7 +57,7 @@ public class Exame {
     public void mostrar() {
         System.out.println("\n\n########## EXAME ##########");
         System.out.println("Data:       " + data.toString());
-        System.out.println("Consulta:   " + consulta);
+        this.consulta.mostrar(true);
         System.out.println("Descritivo: " + descritivo);
     }
 

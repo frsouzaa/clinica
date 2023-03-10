@@ -1,13 +1,17 @@
 package clinica;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Consulta {
     public LocalDate data;
     public String hora;
-    public Medico medico;
-    public Paciente paciente;
     public String motivo;
     public String historico;
+    public Medico medico;
+    public Paciente paciente;
+    public Agenda agenda;
+    public List<Receita> receitas;
+    public List<Exame> exames;
 
     public Consulta() {
 
@@ -41,9 +45,21 @@ public class Consulta {
     public String getMotivoo() {
         return this.motivo;
     }
-    
+
     public String getHistorico() {
         return this.historico;
+    }
+
+    public Agenda getAgenda() {
+        return this.agenda;
+    }
+
+    public List<Receita> getReceitas() {
+        return this.receitas;
+    }
+
+    public List<Exame> getExames() {
+        return this.exames;
     }
 
     public void setData(LocalDate data) throws NullPointerException {
@@ -79,6 +95,18 @@ public class Consulta {
         this.historico = historico;
     }
 
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
+
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
+    }
+
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
+    }
+
     public void marcar() {
         // todo
     }
@@ -95,14 +123,19 @@ public class Consulta {
         // todo
     }
 
-    public void mostrar() {
-        System.out.println("\n\n########## CONSULTA ##########");
-        System.out.println("Data:      " + data.toString());
-        System.out.println("Hora:      " + hora);
+    public void mostrar(boolean atributo) {
+        String paragrafo = "";
+        if (atributo) {
+            paragrafo = "    ";
+            System.out.println(paragrafo + "#### Consulta ####");
+        } else {
+            System.out.println("\n\n########## Consulta ##########");
+        }
+        System.out.println(paragrafo + "Data:      " + data.toString());
+        System.out.println(paragrafo + "Hora:      " + hora);
         this.medico.mostrar(true);
         this.paciente.mostrar(true);
-        System.out.println("Motivo:    " + motivo);
-        System.out.println("Historico: " + historico);
+        System.out.println(paragrafo + "Motivo:    " + motivo);
+        System.out.println(paragrafo + "Historico: " + historico);
     }
-
 }

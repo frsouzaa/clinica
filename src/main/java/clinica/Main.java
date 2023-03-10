@@ -16,8 +16,8 @@ public class Main {
         Agenda agenda = new Agenda(LocalDate.now(), "00:00:00", medico, paciente);
         Consulta consulta = new Consulta(LocalDate.now(), "00:00:00", medico, paciente, "teste", "teste");
         Receita receita = new Receita(consulta, LocalDate.now(), "teste");
-        Exame exame = new Exame("teste", LocalDate.now(), "teste");
-        
+        Exame exame = new Exame(consulta, LocalDate.now(), "teste");
+
         try {
             paciente.setCpf("123");
         } catch (Exception e) {
@@ -64,9 +64,33 @@ public class Main {
         medico.mostrar(false);
         recepcionista.mostrar();
         agenda.mostrar();
-        consulta.mostrar();
+        consulta.mostrar(false);
         receita.mostrar();
         exame.mostrar();
+
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Cadastrando paciente...");
+        recepcionista.cadastrarPaciente(new Paciente("Paciente Cadastrado", "11122233344", "11 00000000", 'F', 77));
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Paciente cadastrado com sucesso!");
+
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Marcando consulta...");
+        recepcionista.marcarConsulta(medico, paciente);
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Consulta marcada com sucesso!");
+
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Emitindo receita...");
+        medico.emitirReceita(consulta);
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Receita emitida com sucesso!");
+
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Solicitando exame...");
+        medico.solicitarExame(consulta);
+        System.out.println("\n\n");
+        logger.log(Level.INFO, "Exame solicitado com sucesso!");
     }
 
 }
