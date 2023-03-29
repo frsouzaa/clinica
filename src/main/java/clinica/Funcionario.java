@@ -39,4 +39,11 @@ public abstract class Funcionario {
         // todo
     }
 
+    public void mostrar() {
+        System.out.println("########## FUNCIONARIO ##########");
+        System.out.println("Nome:     " + nome);
+        System.out.println("Telefone: " + telefone);
+        System.out.println("Senha:    " + senha);
+    }
+
 }

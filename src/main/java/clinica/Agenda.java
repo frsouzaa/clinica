@@ -60,11 +60,11 @@ public class Agenda {
     }
 
     public void mostrar() {
-        System.out.println("\n\n########## AGENDA ##########");
+        System.out.println("########## AGENDA ##########");
         System.out.println("Data:     " + data.toString());
         System.out.println("Hora:     " + hora);
-        this.medico.mostrar(true);
-        this.paciente.mostrar(true);
+        this.medico.mostrar();
+        this.paciente.mostrar();
     }
 
 }

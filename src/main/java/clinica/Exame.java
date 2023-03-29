@@ -34,10 +34,8 @@ public class Exame extends Procedimento {
     }
 
     public void mostrar() {
-        System.out.println("\n\n########## EXAME ##########");
-        System.out.println("Data:       " + data.toString());
-        this.consulta.mostrar(true);
-        System.out.println("Descritivo: " + descritivo);
+        super.mostrar();
+        this.consulta.mostrar();
     }
 
 }

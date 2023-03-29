@@ -32,19 +32,16 @@ public class Recepcionista extends Funcionario {
     }
 
     public void cadastrarPaciente(Paciente paciente) {
-        paciente.mostrar(false);
+        paciente.mostrar();
     }
 
     public void marcarConsulta(Medico medico, Paciente paciente) {
         Consulta consulta = new Consulta(LocalDate.now(), "23:59:00", medico, paciente, "teste", "teste");
-        consulta.mostrar(false);
+        consulta.mostrar();
     }
 
     public void mostrar() {
-        System.out.println("\n\n########## RECEPCIONISTA ##########");
-        System.out.println("Nome:     " + nome);
+        super.mostrar();
         System.out.println("CPF:      " + cpf);
-        System.out.println("Telefone: " + telefone);
-        System.out.println("Senha:    " + senha);
     }
 }

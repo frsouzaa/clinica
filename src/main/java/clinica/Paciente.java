@@ -91,19 +91,13 @@ public class Paciente {
         return res;
     }
 
-    public void mostrar(boolean atributo) {
-        String paragrafo = "";
-        if (atributo) {
-            paragrafo = "    ";
-            System.out.println(paragrafo + "#### PACIENTE ####");
-        } else {
-            System.out.println("\n\n########## PACIENTE ##########");
-        }
-        System.out.println(paragrafo + "Nome:     " + nome);
-        System.out.println(paragrafo + "CPF:      " + cpf);
-        System.out.println(paragrafo + "Telefone: " + telefone);
-        System.out.println(paragrafo + "Genero:   " + genero);
-        System.out.println(paragrafo + "Idade:    " + idade);
+    public void mostrar() {
+        System.out.println("########## PACIENTE ##########");
+        System.out.println("Nome:     " + nome);
+        System.out.println("CPF:      " + cpf);
+        System.out.println("Telefone: " + telefone);
+        System.out.println("Genero:   " + genero);
+        System.out.println("Idade:    " + idade);
     }
 
 }

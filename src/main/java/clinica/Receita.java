@@ -34,10 +34,8 @@ public class Receita extends Procedimento {
     }
 
     public void mostrar() {
-        System.out.println("\n\n########## RECEITA ##########");
-        System.out.println("Data:       " + data.toString());
-        System.out.println("Consulta:   " + consulta);
-        System.out.println("Descritivo: " + descritivo);
+        super.mostrar();
+        this.consulta.mostrar();
     }
 
 }

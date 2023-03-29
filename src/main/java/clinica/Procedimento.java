@@ -29,4 +29,10 @@ public abstract class Procedimento {
         // todo
     }
 
+    public void mostrar() {
+        System.out.println("########## RECEITA ##########");
+        System.out.println("Data:       " + data.toString());
+        System.out.println("Descritivo: " + descritivo);
+    }
+
 }

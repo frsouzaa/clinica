@@ -69,19 +69,13 @@ public class Consulta extends Agenda {
         // todo
     }
 
-    public void mostrar(boolean atributo) {
-        String paragrafo = "";
-        if (atributo) {
-            paragrafo = "    ";
-            System.out.println(paragrafo + "#### Consulta ####");
-        } else {
-            System.out.println("\n\n########## Consulta ##########");
-        }
-        System.out.println(paragrafo + "Data:      " + data.toString());
-        System.out.println(paragrafo + "Hora:      " + hora);
-        this.medico.mostrar(true);
-        this.paciente.mostrar(true);
-        System.out.println(paragrafo + "Motivo:    " + motivo);
-        System.out.println(paragrafo + "Historico: " + historico);
+    public void mostrar() {
+        System.out.println("########## Consulta ##########");
+        System.out.println("Motivo:    " + motivo);
+        System.out.println("Historico: " + historico);
+        System.out.println("Data:      " + data.toString());
+        System.out.println("Hora:      " + hora);
+        this.paciente.mostrar();
+        this.medico.mostrar();
     }
 }

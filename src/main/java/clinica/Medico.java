@@ -46,19 +46,10 @@ public class Medico extends Funcionario {
         exame.mostrar();
     }
 
-    public void mostrar(boolean atributo) {
-        String paragrafo = "";
-        if (atributo) {
-            paragrafo = "    ";
-            System.out.println(paragrafo + "#### MEDICO ####");
-        } else {
-            System.out.println("\n\n########## MEDICO ##########");
-        }
-        System.out.println(paragrafo + "Nome:          " + nome);
-        System.out.println(paragrafo + "CRM:           " + crm);
-        System.out.println(paragrafo + "Telefone:      " + telefone);
-        System.out.println(paragrafo + "Especialidade: " + especialidade);
-        System.out.println(paragrafo + "Senha:         " + senha);
+    public void mostrar() {
+        super.mostrar();
+        System.out.println("Especialidade: " + especialidade);
+        System.out.println("CRM:           " + crm);
     }
     
 }
