@@ -2,14 +2,9 @@ package clinica;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Consulta {
-    public LocalDate data;
-    public String hora;
+public class Consulta extends Agenda {
     public String motivo;
     public String historico;
-    public Medico medico;
-    public Paciente paciente;
-    public Agenda agenda;
     public List<Receita> receitas;
     public List<Exame> exames;
 
@@ -26,32 +21,12 @@ public class Consulta {
         this.historico = historico;
     }
 
-    public LocalDate getData() {
-        return this.data;
-    }
-
-    public String getHora() {
-        return this.hora;
-    }
-    
-    public Medico getMedico() {
-        return this.medico;
-    }
-    
-    public Paciente getPaciente() {
-        return this.paciente;
-    }
-
-    public String getMotivoo() {
+    public String getMotivo() {
         return this.motivo;
     }
 
     public String getHistorico() {
         return this.historico;
-    }
-
-    public Agenda getAgenda() {
-        return this.agenda;
     }
 
     public List<Receita> getReceitas() {
@@ -62,41 +37,12 @@ public class Consulta {
         return this.exames;
     }
 
-    public void setData(LocalDate data) throws NullPointerException {
-        if (data.compareTo(LocalDate.now()) < 0 || data==null) {
-            throw new NullPointerException("Data inválida");
-        }
-        this.data = data;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public void setMedico(Medico medico) throws NullPointerException {
-        if (medico==null) {
-            throw new NullPointerException("Médico não pode ser vazio");
-        }
-        this.medico = medico;
-    }
-
-    public void setPaciente(Paciente paciente) throws NullPointerException {
-        if (paciente==null) {
-            throw new NullPointerException("Paciente não pode ser vazio");
-        }
-        this.paciente = paciente;
-    }
-
     public void setMotivo(String motivo) {
         this.motivo = motivo;
     }
 
     public void setHistorico(String historico) {
         this.historico = historico;
-    }
-
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
     }
 
     public void setReceitas(List<Receita> receitas) {

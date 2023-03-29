@@ -2,11 +2,8 @@ package clinica;
 
 import java.time.LocalDate;
 
-public class Recepcionista {
-    public String nome;
+public class Recepcionista extends Funcionario {
     public String cpf;
-    public String telefone;
-    public String senha;
 
     public Recepcionista() {
 
@@ -19,27 +16,8 @@ public class Recepcionista {
         this.senha = senha;
     }
 
-    public String getNome() {
-        return this.nome;
-    }
-
     public String getCpf() {
         return this.cpf;
-    }
-    
-    public String getTelefone() {
-        return this.telefone;
-    }
-    
-    public String getSenha() {
-        return this.senha;
-    }
-
-    public void setNome(String nome) throws NullPointerException {
-        if (nome==null) {
-            throw new NullPointerException("Nome não pode ser vazio");
-        }
-        this.nome = nome;
     }
     
     public void setCpf(String cpf) throws NullPointerException {
@@ -47,17 +25,6 @@ public class Recepcionista {
             throw new NullPointerException("CPF inválido");
         }
         this.cpf = cpf;
-    }
-    
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-    
-    public void setSenha(String senha) throws NullPointerException {
-        if (senha==null || senha.length() < 13) {
-            throw new NullPointerException("Senha fraca");
-        }
-        this.senha = senha;
     }
 
     public void acessar() {

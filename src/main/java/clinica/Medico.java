@@ -1,12 +1,9 @@
 package clinica;
 import java.time.LocalDate;
 
-public class Medico {
-    public String nome;
+public class Medico extends Funcionario {
     public String crm;
-    public String telefone;
     public String especialidade;
-    public String senha;
     
     public Medico() {
 
@@ -23,50 +20,20 @@ public class Medico {
     public String getCrm() {
         return this.crm;
     }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
     
     public String getEspecialidade() {
         return this.especialidade;
     }
-    
-    public String getNome() {
-        return this.nome;
-    }
-    
-    public String getSenha() {
-        return this.senha;
-    }
 
-    public void setNome(String nome) throws NullPointerException {
-        if (nome==null) {
-            throw new NullPointerException("Nome não pode ser vazio");
-        }
-        this.nome = nome;
-    }
-    
     public void setCrm(String crm) throws NullPointerException {
         if (crm==null) {
             throw new NullPointerException("CRM inválido");
         }
         this.crm = crm;
     }
-    
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-    
+
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
-    }
-    
-    public void setSenha(String senha) throws NullPointerException {
-        if (senha==null || senha.length() < 13) {
-            throw new NullPointerException("Senha fraca");
-        }
-        this.senha = senha;
     }
 
     public void emitirReceita(Consulta consulta) {
