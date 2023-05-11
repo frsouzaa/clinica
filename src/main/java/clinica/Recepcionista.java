@@ -9,11 +9,9 @@ public class Recepcionista extends Funcionario {
 
     }
 
-    public Recepcionista(String nome, String cpf, String telefone, String senha) {
-        this.nome = nome;
+    public Recepcionista(String cpf, String telefone) {
         this.cpf = cpf;
         this.telefone = telefone;
-        this.senha = senha;
     }
 
     public String getCpf() {

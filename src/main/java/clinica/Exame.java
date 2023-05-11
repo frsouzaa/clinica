@@ -36,7 +36,9 @@ public class Exame extends Procedimento {
 
     public void mostrar() {
         super.mostrar();
-        this.consulta.mostrar();
+        if (this.consulta != null) {
+            this.consulta.mostrar();
+        }
     }
 
 }

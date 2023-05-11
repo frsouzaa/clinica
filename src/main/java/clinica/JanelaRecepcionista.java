@@ -23,7 +23,9 @@ public class JanelaRecepcionista extends JFrame {
         salvar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Recepcionista obj = new Recepcionista(nome.getText(), telefone.getText(), cpf.getText(), senha.getText());
+                Recepcionista obj = new Recepcionista(telefone.getText(), cpf.getText());
+                obj.setNome(nome.getText());
+                obj.setSenha(senha.getText());
                 System.out.println("Sucesso");
             }
         });

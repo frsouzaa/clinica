@@ -10,7 +10,7 @@ public class Medico extends Funcionario {
 
     }
 
-    public Medico(String nome, String crm, String telefone, String especialidade, String senha) {        
+    public Medico(String crm, String telefone, String especialidade) {
         this.nome = nome;
         this.crm = crm;
         this.telefone = telefone;

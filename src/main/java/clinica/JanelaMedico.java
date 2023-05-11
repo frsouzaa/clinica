@@ -26,7 +26,9 @@ public class JanelaMedico extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Medico obj = new Medico(nome.getText(), crm.getText(), telefone.getText(), especialidade.getText(), senha.getText());
+                    Medico obj = new Medico(crm.getText(), telefone.getText(), especialidade.getText());
+                    obj.setNome(nome.getText());
+                    obj.setSenha(senha.getText());
                     System.out.println("Sucesso");
                 } catch(Exception err){
                     System.out.println("Erro");

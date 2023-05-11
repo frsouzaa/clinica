@@ -17,6 +17,10 @@ public abstract class Funcionario {
         return this.senha;
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+
     public void setNome(String nome) throws NullPointerException {
         if (nome==null) {
             throw new NullPointerException("Nome não pode ser vazio");
