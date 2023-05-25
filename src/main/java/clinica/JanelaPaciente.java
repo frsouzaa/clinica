@@ -17,9 +17,10 @@ public class JanelaPaciente extends JFrame {
     public JanelaPaciente()  {
         setContentPane(pagePaciente);
         setTitle("Paciente");
-        setSize(380,460);
-        setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        setSize(380,480);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         salvar.addActionListener(new ActionListener() {
             @Override
@@ -32,7 +33,7 @@ public class JanelaPaciente extends JFrame {
         voltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Principal principal = new Principal();
+                dispose();
             }
         });
     }

@@ -3,12 +3,15 @@ package clinica.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import clinica.Conexao;
 import clinica.Medico;
 
 public class MedicoDAO {
 
-    private Conexao conexao = new Conexao();
+    private static Conexao conexao = new Conexao();
 
     public int create(Medico medico) {
         conexao.conectar();
@@ -28,6 +31,32 @@ public class MedicoDAO {
         }
         finally{
             conexao.desconectar();
+        }
+    }
+
+    public static List<Medico> getListaMedicos() {
+        List<Medico> listaMedicos = new ArrayList<>();
+        conexao.conectar();
+        String Sql = "SELECT * FROM medico";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(Sql);
+            ResultSet retorno = stmt.executeQuery();
+            while (retorno.next()) {
+                String nome = retorno.getString("nome");
+                String crm = retorno.getString("crm");
+                String telefone = retorno.getString("telefone");
+                String senha = retorno.getString("senha");
+                String especialidade = retorno.getString("especialidade");
+
+                Medico medico = new Medico(crm, telefone, especialidade);
+                medico.setNome(nome);
+                medico.setSenha(senha);
+                listaMedicos.add(medico);
+            }
+            return listaMedicos;
+        } catch (SQLException err) {
+            System.err.println(err.getMessage());
+            return null;
         }
     }
 

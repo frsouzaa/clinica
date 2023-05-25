@@ -5,10 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import clinica.Conexao;
 import clinica.Recepcionista;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecepcionistaDAO {
 
-    private Conexao conexao = new Conexao();
+    private static Conexao conexao = new Conexao();
 
     public int create(Recepcionista recepcionista) {
         conexao.conectar();
@@ -27,6 +29,31 @@ public class RecepcionistaDAO {
         }
         finally{
             conexao.desconectar();
+        }
+    }
+
+    public static List<Recepcionista> getListaRecepcionistas() {
+        List<Recepcionista> listaRecepcionistas = new ArrayList<>();
+        conexao.conectar();
+        String Sql = "SELECT * FROM recepcionista";
+        try {
+            PreparedStatement stmt = conexao.prepareStatement(Sql);
+            ResultSet retorno = stmt.executeQuery();
+            while (retorno.next()) {
+                String nome = retorno.getString("nome");
+                String telefone = retorno.getString("telefone");
+                String senha = retorno.getString("senha");
+                String cpf = retorno.getString("cpf");
+
+                Recepcionista recepcionista = new Recepcionista(telefone, cpf);
+                recepcionista.setNome(nome);
+                recepcionista.setSenha(senha);
+                listaRecepcionistas.add(recepcionista);
+            }
+            return listaRecepcionistas;
+        } catch (SQLException err) {
+            System.err.println(err.getMessage());
+            return null;
         }
     }
 

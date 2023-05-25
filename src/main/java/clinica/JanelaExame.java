@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import clinica.DAO.ExameDAO;
 
 public class JanelaExame extends JFrame {
     private JPanel pageExame;
@@ -16,8 +17,9 @@ public class JanelaExame extends JFrame {
         setContentPane(pageExame);
         setTitle("Exame");
         setSize(380,330);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
 
         salvar.addActionListener(new ActionListener() {
             @Override
@@ -26,7 +28,8 @@ public class JanelaExame extends JFrame {
                     Exame obj = new Exame();
                     obj.setDescritivo(descritivo.getText());
                     obj.setData(LocalDate.now());
-                    System.out.println("Sucesso");
+                    ExameDAO exameDAO = new ExameDAO();
+                    exameDAO.create(obj);
                 } catch(Exception err){
                     System.out.println("Erro");
                 }
@@ -36,7 +39,7 @@ public class JanelaExame extends JFrame {
         voltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Principal principal = new Principal();
+                dispose();
             }
         });
     }

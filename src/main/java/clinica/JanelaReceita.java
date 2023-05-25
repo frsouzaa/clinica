@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import clinica.DAO.ReceitaDAO;
 
 public class JanelaReceita extends JFrame {
     private JPanel pageReceita;
@@ -16,8 +17,10 @@ public class JanelaReceita extends JFrame {
         setContentPane(pageReceita);
         setTitle("Receita");
         setSize(380,330);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
+
         salvar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -25,7 +28,8 @@ public class JanelaReceita extends JFrame {
                     Receita obj = new Receita();
                     obj.setDescritivo(descritivo.getText());
                     obj.setData(LocalDate.now());
-                    System.out.println("Sucesso");
+                    ReceitaDAO receitaDAO = new ReceitaDAO();
+                    receitaDAO.create(obj);
                 } catch(Exception err){
                     System.out.println("Erro");
                 }
@@ -35,7 +39,7 @@ public class JanelaReceita extends JFrame {
         voltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Principal principal = new Principal();
+                dispose();
             }
         });
     }
